@@ -1,0 +1,8 @@
+-The author of the ROM is not responsible for your actions.
+-Agreeing on the installation, you agree not to distribute the ROM on its own behalf and not change its contents.
+-If you find a bug, immediately report it to the author.
+-Please do not attempt to change anything in the archive, in order not to brick.
+
+-If you have problems the solution of which was in the FAQ section, you should not write me about them.
+
+-Read the FAQ!

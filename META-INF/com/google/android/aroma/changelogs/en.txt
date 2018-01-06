@@ -1,0 +1,64 @@
+﻿ -05.01.2018 -
+*3.18.90 kernel [kernel]
+*Edits of script [aroma]
+*Many small changes in the system [system]
+*Rewrote new backup script. Now you can flash ROM without wipe system: gapps and other patches will be restored (except Magisk) [aroma + zip]
+*Edits of Aroma sections and translate [aroma]
+
+ -29.12.2017 -
+*Added tweaks for audio, display, etc. (build.prop) [system]
+*Magisk 15.0 [zip]
+*Minor changes translation everywhere 
+*Edits of script and zip [zip + aroma]
+*The minimum number of running cores: 2 -> 1 (from RR-M) [system]
+*Now seems to work the statistics of cores frequencies in Kernel Adiutor (from RR-M) [system]
+
+ - 12.12.2017 -
+*Rebase device tree. Now using Ritesh's tree with all my changes (audio-media, selinux, etc.) [sources]
+*December sec patch [system]
+*A huge number of small edits [system]
+*Added FAQ section in installer [aroma]
+*Small changes in zip and edits of script [zip + aroma]
+*Fixed installing of Magisk (with MagiskManager) [zip]
+
+ - 02.12.2017 -
+*When one set of SIM only shows one icon of a network (some had two) [system]
+*Fixed Magisk installing [zip]
+*Edits of installer script [aroma]
+*November security patch [system]
+
+ - 24.11.2017 -
+*Removed fpc delays after authentication cancelled [system]
+
+ - 22.11.2017 -
+*Increased Doze brightness [system]
+*Goodix fixed [system]
+*Dec volume speaker [system]
+*No dark video (thanks Ritesh) [system]
+*Fixed sync of the flash and the shutter (thanks Ritesh) [system]
+*Animation Scale 1.0 by default (Thanks Rahul) [system]
+*Small changes [system]
+*Edits of zip and script [zip]
+
+ - 08.11.2017 -
+*PA Color Engine support (with force enabling in developer option) [system]
+*Fixed smiles (emoji) [system]
+*Translated some strings to Russian [system]
+*Firmware update deleted [aroma]
+*Added "Disable WiFi logging" [aroma]
+*Added theme selection [aroma]
+*Deleted backuptool [zip]
+*Edited config and script [aroma]
+*Added FP checker script [zip]
+*Added Magisk [aroma]
+*UNOFFICIAL-Modify now [source]
+*A lot of small changes [sources]
+*Clean build [sources]
+
+ - 06.11.2017 -
+*Added more network modes [system]
+*Aroma Installer [zip]
+*Snap camera [system]
+
+ - unknow -
+*Initial release

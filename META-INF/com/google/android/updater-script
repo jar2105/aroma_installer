@@ -1,0 +1,118 @@
+# ---> Initializing
+ui_print("@===========================");
+ui_print("@Aroma Installer for AEX by jar2105");
+ui_print("@===========================");
+if file_getprop("/tmp/aroma/base.prop", "selected.1") == "1" then
+
+# ---> Backup
+ifelse(is_mounted("/system"), unmount("/system"));
+package_extract_dir("install", "/tmp/install");
+set_metadata_recursive("/tmp/install", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644);
+set_metadata_recursive("/tmp/install/bin", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755);
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system", "");
+ui_print("-> Making backup");
+run_program("/tmp/install/bin/backuptool.sh", "backup");
+unmount("/system");
+
+# ---> Installing ROM
+ui_print(" ");
+ui_print(" ");
+ui_print(" ");
+ui_print("@--------Installing AospExtended---------");
+ui_print(" OS version: AospExtended-v4.6-Modify");
+ui_print(" OS type: UNOFFICIAL-Modify");
+ui_print(" Android version: 7.1.2");
+ui_print(" Security patch: 2017-12-05");
+ui_print(" SDK version: 25");
+if file_getprop("/tmp/aroma/general.prop", "item.1.2") == "1" then
+ui_print(" Root status: enabled");
+else
+ui_print(" Root status: disabled");
+endif;
+ui_print(" Build ID: NJH47F");
+ui_print(" Build type: Stable * Modify");
+ui_print(" Build host: AEX-Modify");
+ui_print(" Build date: Fri Jan 5 14:13:28 UTC 2018");
+ui_print(" Maintainer: jar2105");
+ui_print(" Device codename: land");
+ui_print(" Manufacturer: Xiaomi");
+ui_print(" LCD density: 320");
+ui_print(" ");
+ui_print(" ");
+ui_print("-> Flashing system");
+block_image_update("/dev/block/bootdevice/by-name/system", package_extract_file("system.transfer.list"), "system.new.dat", "system.patch.dat");
+show_progress(0.050000, 5);
+ui_print(" ");
+ui_print("-> Flashing boot.img");
+package_extract_file("boot.img", "/dev/block/bootdevice/by-name/boot");
+ui_print(" ");
+ui_print("@-----------Finished Installing-----------");
+ui_print(" ");
+
+
+
+# ---> Additions
+if file_getprop("/tmp/aroma/language.prop", "selected") == "1" then
+ui_print("@-> Installing Additions");
+else
+ui_print("@-> Установка дополнений");
+endif;
+ui_print(" ");
+ifelse(is_mounted("/system"), unmount("/system"));
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system", "");
+
+# |===> Camera
+if file_getprop("/tmp/aroma/base.prop", "selected.2") == "2" then
+ui_print("-> CameraNext");
+ui_print(" ");
+run_program("/sbin/busybox", "mount", "/system");
+delete_recursive("/system/priv-app/Snap");
+package_extract_dir("adds/nextcam", "/system");
+endif;
+if file_getprop("/tmp/aroma/base.prop", "selected.2") == "3" then
+ui_print("-> MIUI Camera");
+ui_print(" ");
+delete_recursive("/system/priv-app/Snap");
+package_extract_dir("adds/micam", "/system");
+endif;
+
+# |===> WiFi Log
+if file_getprop("/tmp/aroma/general.prop", "item.1.1") == "1" then
+ui_print("-> Disabling logging");
+ui_print(" ");
+ifelse(is_mounted("/data"), unmount("/data"));
+run_program("/sbin/busybox", "mount", "/data");
+delete("/data/misc/wifi/cnss_diag.conf");
+package_extract_dir("adds/logwifi", "/data/misc/wifi");
+unmount("/data");
+endif;
+
+# |===> Magisk
+if file_getprop("/tmp/aroma/general.prop", "item.1.2") == "1" then
+ui_print("-> Installing Magisk");
+ui_print(" ");
+package_extract_dir("adds/magisk", "/tmp/magisk");
+run_program("/sbin/busybox", "unzip", "/tmp/magisk/magisk.zip", "META-INF/com/google/android/*", "-d", "/tmp/magisk");
+run_program("/sbin/busybox", "sh", "/tmp/magisk/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/magisk/magisk.zip");
+endif;
+
+
+
+# ---> Restore
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system", "");
+ui_print("-> Restoring backup ");
+ui_print(" ");
+run_program("/tmp/install/bin/backuptool.sh", "restore");
+unmount("/system");
+
+# ---> Finishing
+if file_getprop("/tmp/aroma/language.prop", "selected") == "1" then
+ui_print("-> Done!");
+else
+ui_print("-> Готово!");
+endif;
+ui_print(" ");
+ifelse(is_mounted("/system"), unmount("/system"));
+
+else ui_print("-> Select ROM!");
+endif;

@@ -1,0 +1,101 @@
+text_ok=OK
+text_next=Next >
+text_back=< Back
+text_yes=Yes
+text_no=No
+text_about=About
+text_calibrating=Calibrating Tools
+text_quit=Quit Installation
+text_quit_msg=Are you sure to quit the installer?
+
+text_install=Install
+text_next1=Next >
+text_finish=Finish
+
+themes=Themes
+theme_title=Choose theme.
+
+welcome=Welcome
+welcome1=It's a <b>
+welcome2=</b> v.
+welcome3=for 
+welcome4=by <b>
+welcome5=</b>\
+Date: 
+welcome6=\
+Tap Next to continiue.
+
+agreebox=Agreement
+agreebox1.1=You should agree with it.
+agreebox2.1=Yes, I agree.
+agreebox3.1=You can't continiue while you disagree.
+
+changelog=Changelog
+changelog1=List of changes.
+
+faq=FAQ
+faq1=Frequently asked question.
+
+selectbox=Settings
+selectbox1.1=You can choose one option.
+selectbox2.1=Select the ROM
+selectbox2.2=Select the camera
+selectbox3.0=Stock
+selectbox3.1=CameraNext
+selectbox3.2=MIUI Camera
+selectbox3.3=AospExtended Modify * jar2105
+selectbox4.0=Do not change
+selectbox4.1=Install CameraNext
+selectbox4.2=Install MIUI Camera
+selectbox4.3=Install
+
+checkbox=Settings
+checkbox1.1=You can choose several options.
+checkbox2.1=General
+checkbox3.1=Disable WiFi logging
+checkbox3.2=Root Access
+checkbox4.1=Install
+checkbox4.2=Flash/Restore Magisk
+
+demo=Installing
+demo1.1=Select the action
+demo2.1=Start the installation
+demo2.2=About phone
+demo3.1=To begin installation of the selected firmware
+demo3.2=Sysinfo, calculating etc.
+
+sys.title1=System Information
+sys.title2=Memory Information
+
+sysinfo=Device Information
+sysinfo1=There's some information about your device.
+
+back=Back demo
+back1.1=You can return to one of previous screens
+back2.1=Don't return
+back2.2=Return to the last screen
+
+calculations=Calculations
+
+iif=Inline If
+iif1=True
+iif2=False
+
+alert=Installation Demo
+alert1.1=Now we're going to installation demo.
+alert2.1=Good
+
+ayr=Are you ready?
+ayr1=Tap Install to continiue.
+
+install=Install
+install1.1=</b> are installing.\
+\
+
+install1.2=Please wait...
+install2.1=The installation wizard has successfully installed <b>
+install2.2=</b>. Press Next to finish.
+
+reboot=Reboot
+reboot1.1=Are you want to reboot device after finish?
+reboot2.1=Reboot device

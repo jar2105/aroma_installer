@@ -1,0 +1,16 @@
+﻿This list will be augmented as the updates.
+
+Q: Phone is not on deep sleep mode, battery drain. (!!!)
+A: Go to Settings->Display and disable "Pocket detection" and "Screensaver".
+
+Q: After done above the phone still has bad battery.
+A: Install Wakeblocker or similar application (need root) and check which apps are wasting battery on your processes. These processes may be restricted in Settings->Extensions->System->General tweaks->Alarm blocker and Wakelock blocker.
+
+Q: I found a bug/error. Where do I go?
+A: You can send a log of the error and describe the problem to me in a telegram: @jar2105.
+
+Q: Dark video while shooting in low light.
+A: Install any other camera (MIUI for example), or install Snap Camera, then Menu->tick "Advanced settings", then Menu->Video->Frequency preview->7-30.
+
+Q: Which wipes I need?
+A: System, cache, dalvik-cache. Wipe data not required, but recommended. If you forget the wipes, you can now close the installation and do them.

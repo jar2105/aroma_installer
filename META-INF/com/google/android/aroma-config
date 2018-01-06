@@ -1,0 +1,125 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Initialize
+ini_set("rom_name","AospExtended");
+ini_set("rom_author","jar2105");
+ini_set("rom_device","Redmi 3S/Prime/3X");
+ini_set("rom_date","05.01.2018");
+ini_set("force_colorspace","rgba");
+fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" );
+fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" );
+splash(2000, "splash");
+theme("dark_blue");
+
+menubox("Language",
+"Choose your language.\nВыберите язык.",
+"@confirm",
+"language.prop",
+"English", "My language is English", "",
+"Русский", "Мой язык - русский", "");
+
+if prop("language.prop","selected")=="1" then
+loadlang("langs/en.lang");
+else
+loadlang("langs/ru.lang");
+endif;
+
+menubox("Theme",
+"<~theme_title>",
+"@confirm",
+"theme.prop",
+"Dark Blue", "", "",
+"Material Red", "", "");
+
+if prop("theme.prop","selected")=="1" then
+theme("dark_blue");
+else
+theme("material_red");
+endif;
+
+# Welcome
+viewbox("<~welcome>",
+"<~welcome1>"+ini_get("rom_name")+" <~welcome3>" + ini_get("rom_device")+" <~welcome4>"+ini_get("rom_author")+" <~welcome5> "+ini_get("rom_date")+"<~welcome6>",
+"@info");
+
+# License
+agreebox("<~agreebox>",
+"<~agreebox1.1>",
+"@license",
+if prop("language.prop","selected")=="1" then
+resread("agreeboxes/en.txt")
+else
+resread("agreeboxes/ru.txt")
+endif,
+"<~agreebox2.1>",
+"<~agreebox3.1>");
+
+# FAQ
+textbox("<~faq>",
+"<~faq1>",
+"@update",
+if prop("language.prop","selected")=="1" then
+resread("faq/en.txt")
+else
+resread("faq/ru.txt")
+endif);
+
+# Changelog
+textbox("<~changelog>",
+"<~changelog1>",
+"@update",
+if prop("language.prop","selected")=="1" then
+resread("changelogs/en.txt")
+else
+resread("changelogs/ru.txt")
+endif);
+
+# Menu
+
+selectbox("<~selectbox>",
+"<~selectbox1.1>",
+"@customize",
+"base.prop",
+"<~selectbox2.1>", "", 2,
+"<~selectbox3.3>", "<~selectbox4.3>", 1,
+"<~selectbox2.2>", "", 2,
+"<~selectbox3.0>", "<~selectbox4.0>", 1,
+"<~selectbox3.1>", "<~selectbox4.1>", 0,
+"<~selectbox3.2>", "<~selectbox4.2>", 0);
+
+checkbox("<~checkbox>",
+"<~checkbox1.1>",
+"@customize",
+"general.prop",
+"<~checkbox2.1>", "", 2,
+"<~checkbox3.1>", "<~checkbox4.1>", 0,
+"<~checkbox3.2>", "<~checkbox4.2>", 0);
+
+# Installer
+menubox("<~demo>",
+"<~demo1.1>",
+"@customize",
+"demo.prop",
+"<~demo2.1>", "<~demo3.1>", "@install");
+
+install("<~install>",
+"<b>"+ ini_get("rom_name") +"<~install1.1>" + 
+"<~install1.2>",
+"@install",
+"<~install2.1>" + ini_get("rom_name") + "<~install2.2>");
+
+ini_set("text_next", "<~text_finish>");
