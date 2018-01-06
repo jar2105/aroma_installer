@@ -15,16 +15,18 @@
 # limitations under the License.
 
 # Initialize
-ini_set("rom_name","AospExtended");
-ini_set("rom_author","jar2105");
-ini_set("rom_device","Redmi 3S/Prime/3X");
-ini_set("rom_date","05.01.2018");
+ini_set("rom_name","name_of_ROM");
+ini_set("rom_author","your_name");
+ini_set("rom_device","your_phone");
+ini_set("rom_date","build_date");
 ini_set("force_colorspace","rgba");
+#Loading fonts, splash, theme
 fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" );
 fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" );
 splash(2000, "splash");
 theme("dark_blue");
 
+# Language menu, loading langs
 menubox("Language",
 "Choose your language.\nВыберите язык.",
 "@confirm",
@@ -38,6 +40,7 @@ else
 loadlang("langs/ru.lang");
 endif;
 
+# Theme menu, loading choosen theme
 menubox("Theme",
 "<~theme_title>",
 "@confirm",
@@ -51,7 +54,7 @@ else
 theme("material_red");
 endif;
 
-# Welcome
+# Welcome menu
 viewbox("<~welcome>",
 "<~welcome1>"+ini_get("rom_name")+" <~welcome3>" + ini_get("rom_device")+" <~welcome4>"+ini_get("rom_author")+" <~welcome5> "+ini_get("rom_date")+"<~welcome6>",
 "@info");
@@ -88,8 +91,7 @@ else
 resread("changelogs/ru.txt")
 endif);
 
-# Menu
-
+# Menu of additions (selectbox+checkbox)
 selectbox("<~selectbox>",
 "<~selectbox1.1>",
 "@customize",
@@ -122,4 +124,5 @@ install("<~install>",
 "@install",
 "<~install2.1>" + ini_get("rom_name") + "<~install2.2>");
 
+# Finish
 ini_set("text_next", "<~text_finish>");
